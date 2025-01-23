@@ -4,40 +4,6 @@ require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  zksolc: {
-    version: "1.3.9",
-    compilerSource: "binary",
-    settings: {
-      optimizer: {
-        enabled: true,
-      },
-    },
-  },
-  networks: {
-    sepolia: {
-      url: process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/your-api-key",
-      accounts: [process.env.PRIVATE_KEY || ""],
-      chainId: 11155111,
-    },
-    zksync_testnet: {
-      url: "https://zksync2-testnet.zksync.dev",
-      ethNetwork: "goerli",
-      chainId: 280,
-      zksync: true,
-    },
-    zksync_mainnet: {
-      url: "https://zksync2-mainnet.zksync.io/",
-      ethNetwork: "mainnet",
-      chainId: 324,
-      zksync: true,
-    },
-  },
-  paths: {
-    artifacts: "./artifacts-zk",
-    cache: "./cache-zk",
-    sources: "./contracts",
-    tests: "./test",
-  },
   solidity: {
     version: "0.8.20",
     settings: {
@@ -47,4 +13,28 @@ module.exports = {
       },
     },
   },
+  networks: {
+    hardhat: {
+      chainId: 1337
+    },
+    ganache: {
+      url: "http://127.0.0.1:7545",
+      chainId: 1337,
+      accounts: [
+        // Add your Ganache private key here (the first account from your Ganache UI)
+        "0xd82f696e15b26e3c3b6607c142c2d33ee8e39e39399c654d446c95075f90fa8f"  // This is a default Ganache private key, replace with yours
+      ]
+    },
+    sepolia: {
+      url: process.env.SEPOLIA_RPC_URL || "https://eth-sepolia.g.alchemy.com/v2/your-api-key",
+      accounts: [process.env.PRIVATE_KEY || ""],
+      chainId: 11155111,
+    }
+  },
+  paths: {
+    artifacts: "./artifacts",
+    sources: "./contracts",
+    cache: "./cache",
+    tests: "./test"
+  }
 };
