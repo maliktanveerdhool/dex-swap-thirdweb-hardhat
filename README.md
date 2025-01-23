@@ -16,11 +16,6 @@ dex-app/
     └── styles/        # CSS modules
 ```
 
-## Smart Contracts
-
-### Deployed Contracts (Sepolia Testnet)
-- Token Contract: `0xB2320e5da7D93f5Ccef3863ebb5836CA38aF2C72`
-- DEX Contract: [Pending Deployment]
 
 ### Features
 - ETH-Token swaps
